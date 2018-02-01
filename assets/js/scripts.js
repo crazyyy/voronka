@@ -46,3 +46,32 @@ if (typeof jQuery === "undefined") {
   console.log("jQuery " + jQuery.fn.jquery + " has loaded")
 }
 // Place any jQuery/helper plugins in here.
+
+(function() {
+  var $elements = $('.block-forth--item');
+  var maxheight = 0;
+  $elements.each(function() {
+    if ($(this).height() > maxheight) {
+      maxheight = $(this).height();
+    }
+  });
+  $elements.height(maxheight);
+}());
+
+
+// jQuery(document).ready(function($) {
+function initMap() {
+
+  var uluru = {
+    lat: 55.73102774957309,
+    lng: 37.63500960543752
+  };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
